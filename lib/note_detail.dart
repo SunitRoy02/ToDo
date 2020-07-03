@@ -59,7 +59,7 @@ class NoteDetailsState extends State<NoteDetails> {
                 },
                 decoration: InputDecoration(
                   labelText: 'Task',
-                  labelStyle: TextStyle(color: Colors.grey),
+                  labelStyle: TextStyle(color: Colors.grey, fontSize: 20.0),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0)),
                 ),
@@ -89,42 +89,49 @@ class NoteDetailsState extends State<NoteDetails> {
             // Fourth Element
             Padding(
               padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: RaisedButton(
-                      color: Theme.of(context).primaryColorDark,
-                      textColor: Theme.of(context).primaryColorLight,
-                      child: Text(
-                        'Save',
-                        textScaleFactor: 1.5,
+              child: Container(
+                height: 70,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        child: RaisedButton(
+                          padding: EdgeInsets.all(15.0),
+                          color: Theme.of(context).primaryColorDark,
+                          textColor: Theme.of(context).primaryColorLight,
+                          child: Text(
+                            'Save',
+                            style: TextStyle(fontSize: 25.0),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              debugPrint("Save button clicked");
+                            });
+                          },
+                        ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          debugPrint("Save button clicked");
-                        });
-                      },
                     ),
-                  ),
-                  Container(
-                    width: 5.0,
-                  ),
-                  Expanded(
-                    child: RaisedButton(
-                      color: Theme.of(context).primaryColorDark,
-                      textColor: Theme.of(context).primaryColorLight,
-                      child: Text(
-                        'Delete',
-                        textScaleFactor: 1.5,
+                    Container(
+                      width: 5.0,
+                    ),
+                    Expanded(
+                      child: RaisedButton(
+                        padding: const EdgeInsets.all(15.0),
+                        color: Theme.of(context).primaryColorDark,
+                        textColor: Theme.of(context).primaryColorLight,
+                        child: Text(
+                          'Delete',
+                          style: TextStyle(fontSize: 25.0),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            debugPrint("Delete button clicked");
+                          });
+                        },
                       ),
-                      onPressed: () {
-                        setState(() {
-                          debugPrint("Delete button clicked");
-                        });
-                      },
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
