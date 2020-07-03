@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'note_detail.dart';
+
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -16,12 +18,18 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('Fab Clicked');
+          navigateToDetail(context, 'Add Note');
         },
-        child: Icon(Icons.add ,color: Colors.white,),
-        tooltip:'Add Note',
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        tooltip: 'Add Note',
       ),
     );
   }
+
+
 }
 
 ListView getListView() {
@@ -35,7 +43,7 @@ ListView getListView() {
         child: ListTile(
           leading: CircleAvatar(
             backgroundColor: Colors.amber,
-            child: Icon(Icons.keyboard_arrow_right, color:  Colors.white,),
+            child: Icon(Icons.keyboard_arrow_right, color: Colors.white,),
           ),
           title: Text(
             'Dummy Title',
@@ -51,9 +59,17 @@ ListView getListView() {
           ),
           onTap: () {
             debugPrint('List item selected');
+            var lol = 'Edit Note';
+            navigateToDetail(context, lol);
           },
         ),
       );
     },
   );
+}
+
+navigateToDetail(context, String title) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return NoteDetails(context, title);
+  }));
 }
