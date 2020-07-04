@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'home.dart';
+import 'package:todo/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,10 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: Home(),
+      home: NoteList(),
     );
   }
 }
-
-
-
